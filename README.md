@@ -75,5 +75,35 @@ find + nomeDiretorio -amin -5 - vai procurar arquivos modificados em um espaço 
 find + nomeDiretorio -atime -2- vai procurar arquivos modificados em um espaço de tempo em dias, no caso em 2 dias
 sudo find / -size +100M - com permissão de root vou pesquisar arquivos no diretorio / que contenham mais de 100 megas
 find nomeDiretorio -iname - o iname faz ele ignorar o letras maiusculas e minusculas
+
+grep algumaCoisa > arquivoTxtQueQueroSalvar.txt - o sinal de maior (">") vai salvar o retorno do grep dentro do arquivo arquivoTxtQueQueroSalvar.txt. Caso queira salvar mais conteudo nesse arquivo devo usar dois sinaid de maior (">>")
+OBS.: Se eu repeditir o comando sem usar dois sinais de maior ele vai sobrescrever o arquivo e irei perder o conteudo que já tinha salvo
+
+PIPES ("|"): Os pipes servem pra redirecionar comando para outro comando, por exemplo usar um cat e redirecionar a saida dele para um grep e assim executar dois comandos juntos (cat /etc/passwd | grep michael > listagem.txt, nesse comando combinei a saída do cat fiz um grep nela e ainda salvei no arquivo listagem.txt). Basicamente o pipe faz o "O encadeamento de comandos em que: a saída do primeiro comando é utilizada como entrada para o segundo comando."
+
+comando do VI
+
+dd - recorta linha
+caso queria deletar varias linhas eu coloco o cursor no inicio de onde quero deletar e escrevo a quantidade de linhas seguido de dd
+
+:numero da linha - se eu digirar dois pontos ":" mais o numero da linha onde quero navegar o cursor ira direto pra essa linha facilitando a navegação
+
+gg - vai pro inicio do arquivo
+G - g maísculo vai pro final do arquivo
+
+/stringQueQueroLocalizar - esse comando serve para localizer texto especifico no documento que estou editando
+
+p - p minusculo cola na linha abaixo que o cursor está
+P - p maiusculo cola antes do cursor
+u - desfaz o ultimo comando
+yy - copia linha 
+numeroDeLinhas yy - se eu quiser copiar varias linhas eu digito o numero de linhas que quero copiar mais "yy", lembrando que o cursor deve estar no inicio da linha que quero copiar
+
+:w salva o arquivo
+:w nomeDoNovoArquivo - salva as alterações em um novo arquivo com o nome que vem depois do :w 
+:s/testoQueQueroLocalizar/novoTextoDoReplace - o :s serve para substituir um texto. o texto que vem depois da barra é o texto que vai ser substituido. o texto que vem depois da segunda barra é o novo texto que quero inseir no lugar do antigo.Esse comando vai ser feito na primeira vez que o texto aparece na linha, caso queira fazer com todos os texto da linha faço o seguinte comando 
+:s/testoQueQueroLocalizar/novoTextoDoReplace - substituira todas ocorrencias do texto na linha. Caso queira substituir todos os textos do documento faço
+:%s/testoQueQueroLocalizar/novoTextoDoReplace/g
+
   
  
